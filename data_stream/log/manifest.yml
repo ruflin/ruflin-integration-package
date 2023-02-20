@@ -1,0 +1,13 @@
+title: "Ruflin logs"
+type: logs
+streams:
+  - input: logfile
+    title: Ruflin logs
+    description: Collect ruflin logs
+    vars:
+      - name: paths
+        type: text
+        title: Paths
+        multi: true
+        default:
+          - /var/log/ruflin.log
