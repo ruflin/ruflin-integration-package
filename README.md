@@ -61,16 +61,13 @@ This will spin up a cluster with the 8.8.0-SNAPSHOT builds. The cluster can be a
 
 In case you want to update to the latest snapshot version, run `elastic-package stack update --version=8.8.0-SNAPSHOT -v`.
 
-Eventually elastic-package will over a command to upload packages to Kibana directly (see [#elastic/elastic-package/issues/1084](https://github.com/elastic/elastic-package/issues/1084) for more details). For now, we are using a `curl` command to do it manually:
+Open a second terminal window and run the following command:
 
-
-```bash
-curl --insecure -XPOST -H 'content-type: application/zip' -H 'kbn-xsrf: true' https://localhost:5601/api/fleet/epm/packages -u elastic:changeme --data-binary @build/packages/ruflin-0.0.1.zip
+```
+elastic-package install
 ```
 
-Host and username/password is set to the default of elastic-package. As path to our package zip file we use `@build/packages/ruflin-0.0.1.zip`. The package zip file contains the version number. This becomes important later when we make further changes to the package.
-
-After you run the above command, the package will show up under "[Installed integrations](https://localhost:5601/app/integrations/installed)" in Kibana.
+This will build and install the package directly into the local Kibana instance. After you run the above command, the package will show up under "[Installed integrations](https://localhost:5601/app/integrations/installed)" in Kibana.
 
 ![Installed packages](img/installed_packages.png)
 
