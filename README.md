@@ -43,8 +43,16 @@ You can validate that the package was correctly created by running the following
 ```bash
 # Check linting rules for packages
 elastic-package lint
+# Format package to fix linting
+elastic-package format
 # Builds `.zip` file out of the package assets
-elastic-packate build
+elastic-package build
+```
+
+If you want to run all three commands in one, you can use check:
+
+```bash
+elastic-package check
 ```
 
 In the `build` directory under `{packagename}` the zip file of your package can be found. This a valid package but does not contain much functionality yet.
@@ -105,7 +113,7 @@ We also need to update `format_version: 2.3.0` in the `manifest.yml` file (will 
 
 Note: This is a new feature in elastic-package (see [#elastic/integrations/issues/5055](https://github.com/elastic/integrations/issues/5055) for more details) and might eventually become the default. TODO: Generation should use the newest format always.
 
-We can frequently check with `elastic-package lint` and `elastic-package build` to make sure we didn't make any mistake and our package still builds and works.
+We can frequently check with `elastic-package check` to make sure we didn't make any mistake and our package still builds and works.
 
 If you upload the package now to Kibana, it will install reinstall the package and create mapping templates for `logs-ruflin.log-*`. You can add your own mappings under `data_stream/log/fields/fields.yml` if needed.
 
@@ -191,7 +199,7 @@ on_failure:
     value: '{{ _ingest.on_failure_message }}'
 ```
 
-Now run `elastic-package build` again and upload the package. It will install our new ingest pipeline. To test the new pipeline, we do a quick test run:
+Now run `elastic-package check` again and upload the package. It will install our new ingest pipeline. To test the new pipeline, we do a quick test run:
 
 ```
 POST logs-ruflin.log-default/_doc
@@ -216,7 +224,7 @@ Since our initial `0.0.1` version of the package, many modifications have been m
       link: http://fake-link
 ```
 
-Run `elastic-build` again and the upload command. The `0.1.0` version of the package will be updated to version 0.2.0. Only 1 version of the same package can be installed at the same time. But like this different versions of a package can be rolled out over time.
+Run `elastic-package check` again and the upload command. The `0.1.0` version of the package will be updated to version 0.2.0. Only 1 version of the same package can be installed at the same time. But like this different versions of a package can be rolled out over time.
 
 
 ## Step 6: Ingest data
