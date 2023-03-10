@@ -224,7 +224,7 @@ Since our initial `0.0.1` version of the package, many modifications have been m
       link: http://fake-link
 ```
 
-Run `elastic-package check` again and the upload command. The `0.1.0` version of the package will be updated to version 0.2.0. Only 1 version of the same package can be installed at the same time. But like this different versions of a package can be rolled out over time.
+Run `elastic-package check` again and the `elastic-package install` command. The `0.1.0` version of the package will be updated to version 0.2.0. Only 1 version of the same package can be installed at the same time. But like this different versions of a package can be rolled out over time.
 
 
 ## Step 6: Ingest data
