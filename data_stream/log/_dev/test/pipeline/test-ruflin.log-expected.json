@@ -1,0 +1,25 @@
+{
+    "expected": [
+        {
+            "@timestamp": "2023-02-21T13:44:56.657+0100",
+            "log": {
+                "level": "INFO"
+            },
+            "message": "Hello world"
+        },
+        {
+            "@timestamp": "2023-02-21T13:45:56.657+0100",
+            "log": {
+                "level": "INFO"
+            },
+            "message": "This is a nice day"
+        },
+        {
+            "@timestamp": "2023-02-21T13:46:56.657+0100",
+            "log": {
+                "level": "INFO"
+            },
+            "message": "Nicolas is working on stuff"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+name: 'CI checks'
+on: ['push', 'pull_request']
+jobs:
+  cs:
+    runs-on: 'ubuntu-latest'
+    name: 'Coding style'
+    steps:
+      - name: 'Checkout'
+        uses: 'actions/checkout@v3'
+      - name: Install elastic-package binary
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        with: # Grab a specific tag
+          repo: elastic/elastic-package
+          tag: v0.85.0
+      - name: Lint package
+        run: elastic-package check
