@@ -239,10 +239,10 @@ inputs:
     streams:
       - data_stream:
           # This must be aligned with the dataset name given
-          dataset: ruflin.log
+          dataset: test-ruflin.log
         paths:
           # Path to your log file
-          - /Users/ruflin/Downloads/ruflin.log
+          - /Users/ruflin/Downloads/test-ruflin.log
 
 outputs:
   default:
@@ -282,9 +282,9 @@ The current Elastic Agent config is more complicated then it should be. Ideally 
 ```yaml
 inputs:
 - type: logfile
-  data_stream.dataset: ruflin.log  
+  data_stream.dataset: test-ruflin.log  
   paths:
-    - /Users/ruflin/Downloads/ruflin.log
+    - /Users/ruflin/Downloads/test-ruflin.log
 
 outputs:
   default:
@@ -304,10 +304,10 @@ Same ingestion can be done with Filebeat:
 filebeat.inputs:
 - type: log
   paths:
-    - ruflin.log
+    - test-ruflin.log
 
   # It is important to get the full index name correct
-  index: logs-ruflin.log-default
+  index: logs-test-ruflin.log-default
 
 output.elasticsearch:
   hosts: ["localhost:9200"]

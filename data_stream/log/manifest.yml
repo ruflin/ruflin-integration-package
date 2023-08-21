@@ -10,4 +10,4 @@ streams:
         title: Paths
         multi: true
         default:
-          - /var/log/ruflin.log
+          - /var/log/test-ruflin.log
