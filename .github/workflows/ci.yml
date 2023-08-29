@@ -16,10 +16,10 @@ jobs:
         run: elastic-package check
 
       - name: Setup stack
-        run: elastic-package stack up -d -v
+        run: eval "$(elastic-package stack shellinit)" && elastic-package stack up -d -v
 
-      - name: Setup env
-        run: eval "$(elastic-package stack shellinit)"
+      #- name: Setup env
+      #  run: eval "$(elastic-package stack shellinit)"
 
       - name: Run install
-        run: elastic-package install
+        run: eval "$(elastic-package stack shellinit)" && elastic-package install
