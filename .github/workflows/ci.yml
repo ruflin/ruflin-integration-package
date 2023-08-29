@@ -15,11 +15,11 @@ jobs:
       - name: Lint package
         run: elastic-package check
 
-      - name: Setup stack
-        run: eval "$(elastic-package stack shellinit)" && elastic-package stack up -d -v
+      - name: Init shell
+        run: eval "$(elastic-package stack shellinit)"
 
-      #- name: Setup env
-      #  run: eval "$(elastic-package stack shellinit)"
+      - name: Setup stack
+        run: elastic-package stack up -d -v
 
       - name: Run install
-        run: eval "$(elastic-package stack shellinit)" && elastic-package install
+        run: elastic-package install -v
